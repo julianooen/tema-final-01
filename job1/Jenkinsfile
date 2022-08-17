@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git clone') {
+            steps {
+                git branch: 'master', url: 'https://github.com/julianooen/financial-java-app.git'
+            }
+        }
+        stage('Tests') {
+            steps {
+                sh './gradlew test'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh './gradlew clean build'
+            }
+        }
+        stage('Upload') {
+            steps {
+                rtUpload(
+                    serverId:'financial-app',
+                    spec: '''{
+                        "files": [
+                            {
+                                "pattern": "build/libs/*.jar",
+                                "target": "financial-app"
+                            }
+                        ]
+                    }''',
+                )
+            }
+        }
+    }
+}
