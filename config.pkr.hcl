@@ -1,7 +1,7 @@
 packer {
   required_plugins {
     docker = {
-      version = ">= 1.0.1"
+      version = ">= 0.0.7"
       source = "github.com/hashicorp/docker"
     }
   }
@@ -14,16 +14,6 @@ source "docker" "ubuntu" {
       "EXPOSE 8383",
       "ENTRYPOINT [\"java\", \"-jar\", \"/financial.jar\"]"
     ]
-}
-
-variable "username" {
-  type = string
-  default = ""
-}
-
-variable "password" {
-  type = string
-  default = ""
 }
 
 build {
@@ -51,8 +41,7 @@ build {
   post-processors {
     post-processor "docker-tag" {
         repository =  "julianooen/financial-app"
-        tags = ["0.1"]
-    }
+      }
     post-processor "docker-push" {
         login = true
         login_username = "julianooen@hotmail.com"

@@ -18,21 +18,16 @@ pipeline {
             }
         }
 
-        stage('Downloading Packer and Ansible Config Files') {
+        stage('Download Packer') {
             steps {
                 git branch: 'master', url: 'https://github.com/julianooen/tema-final-01.git'
             }
         }
 
-        stage('Packer execution') {
-            // environment {
-            //     DOCKERHUB_USERNAME = credentials('dockerHub_username')
-            //     DOCKERHUB_PASSWORD = credentials('dockerHub_password')
-            // }
+        stage('Packer') {
             steps {
                 sh 'packer init config.pkr.hcl'
                 sh 'packer build config.pkr.hcl'
-            // sh 'packer build -var "username=$DOCKERHUB_USERNAME" -var "password=$DOCKERHUB_PASSWORD" config.pkr.hcl'
             }
         }
     }
