@@ -8,7 +8,7 @@ packer {
 }
 
 source "docker" "ubuntu" {
-  image  = "ubuntu:22.04"
+  image  = "ubuntu:20.04"
   commit = true
   changes = [
       "EXPOSE 8383",
