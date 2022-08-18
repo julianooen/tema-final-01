@@ -1,0 +1,10 @@
+---
+- name: Configuring container
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Install JRE
+      apt:
+        name: openjdk-17-jre
