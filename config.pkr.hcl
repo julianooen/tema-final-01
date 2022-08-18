@@ -11,7 +11,7 @@ source "docker" "ubuntu" {
   image  = "ubuntu:22.04"
   commit = true
   changes = [
-      "EXPOSE 83853",
+      "EXPOSE 8383",
       "ENTRYPOINT [\"java\", \"-jar\", \"/financial.jar\"]"
     ]
 }
@@ -40,7 +40,7 @@ build {
   }
   
   provisioner "file" {
-    source = "./fiancial.jar"
+    source = "./financial.jar"
     destination = "/financial.jar"
   }
   
