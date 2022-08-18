@@ -30,7 +30,7 @@ build {
   }
   
   provisioner "file" {
-    source = "./job2/build/libs/financial.jar"
+    source = "./build/libs/financial.jar"
     destination = "/financial.jar"
   }
   
