@@ -44,7 +44,7 @@ build {
       }
     post-processor "docker-push" {
         login = true
-        login_username = "julianooen@hotmail.com"
+        login_username = "julianooen"
         login_password = "dckr_pat_RFy0qjt-fAJQatb3AFGWlEhjl6c"
     }
   }
