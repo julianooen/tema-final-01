@@ -26,8 +26,8 @@ pipeline {
 
         stage('Packer execution') {
             environment {
-                DOCKERHUB_USERNAME = credentials('dockerhub_username')
-                DOCKERHUB_PASSWORD = credentials('dockerhub_password')
+                DOCKERHUB_USERNAME = credentials('dockerHub_username')
+                DOCKERHUB_PASSWORD = credentials('dockerHub_password')
             }
             steps {
                 sh 'packer init config.pkr.hcl'
