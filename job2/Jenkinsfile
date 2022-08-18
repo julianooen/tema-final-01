@@ -20,7 +20,7 @@ pipeline {
 
         stage('Downloading Packer and Ansible Config Files') {
             steps {
-                git url: 'https://github.com/julianooen/tema-final-01/tree/master/job1'
+                git url: 'https://github.com/julianooen/tema-final-01/tree/master/job2'
             }
         }
 
