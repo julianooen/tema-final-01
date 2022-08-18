@@ -17,7 +17,7 @@ source "docker" "ubuntu" {
 }
 
 build {
-  name = "Job2"
+  name = "job2"
   sources = [
     "source.docker.ubuntu"
   ]
@@ -30,7 +30,7 @@ build {
   }
   
   provisioner "file" {
-    source = "./financial.jar"
+    source = "./job2/build/libs/financial.jar"
     destination = "/financial.jar"
   }
   
