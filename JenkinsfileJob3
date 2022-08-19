@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Dockerhub') {
+            steps {
+                sh 'docker pull julianooen/financial-app'
+            }
+        }
+        stage('Run') {
+            steps {
+                sh 'docker run  -d -p 8383:8383 julianooen/financial-app'
+            }
+        }
+    }
+}
