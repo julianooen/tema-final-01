@@ -26,10 +26,10 @@ pipeline {
         }
 
         stage('Packer') {
-            steps {
-                environment {
+            environment {
                     DOCKERHUB = credentials('dockerhub')
-                }
+            }
+            steps {
                 sh 'packer init config.pkr.hcl'
                 sh 'packer build -var "login_username=$DOCKERHUB_USR" -var "login_password=$DOCKERHUB_PSW" config.pkr.hcl'
             }
