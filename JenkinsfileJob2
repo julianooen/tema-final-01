@@ -11,7 +11,7 @@ pipeline {
                         "files": [
                             {
                                 "pattern": "financial-app/financial.jar",
-                                "target": "build/libs/financial.jar"
+                                "target": "./"
                             }
                         ]
                     }''',
