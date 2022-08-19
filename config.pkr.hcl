@@ -16,6 +16,18 @@ source "docker" "ubuntu" {
     ]
 }
 
+
+variable "login_username" {
+  type    = string
+  default = "user"
+}
+
+
+variable "login_password" {
+  type    = string
+  default = "password"
+}
+
 build {
   name = "job2"
   sources = [
@@ -44,8 +56,12 @@ build {
       }
     post-processor "docker-push" {
         login = true
-        login_username = "julianooen"
-        login_password = "dckr_pat_RFy0qjt-fAJQatb3AFGWlEhjl6c"
+
+        login_username = var.login_username
+        login_password = var.login_password
+
+        # login_username = "julianooen"
+        # login_password = "dckr_pat_RFy0qjt-fAJQatb3AFGWlEhjl6c"
     }
   }
 }

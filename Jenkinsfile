@@ -1,6 +1,12 @@
 
 pipeline {
     agent any
+
+    environment {
+        DOCKERHUB_USERNAME = credentials('dockerhub_username')
+        DOCKERHUB_PASSWORD = credentials('dockerhub_password')
+    }
+
     stages {
         stage('from JFrog') {
             steps {
@@ -27,7 +33,7 @@ pipeline {
         stage('Packer') {
             steps {
                 sh 'packer init config.pkr.hcl'
-                sh 'packer build config.pkr.hcl'
+                sh 'packer build -var "login_username=$DOCKERHUB_USERNAME" -var "login_password=$DOCKERHUB_PASSWORD" config.pkr.hcl'
             }
         }
     }
