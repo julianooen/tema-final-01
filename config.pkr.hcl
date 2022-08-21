@@ -12,7 +12,7 @@ source "docker" "ubuntu" {
   commit = true
   changes = [
       "EXPOSE 8383",
-      "ENTRYPOINT [\"java\", \"-jar\", \"/financialJava.war\"]"
+      "ENTRYPOINT [\"java\", \"-jar\", \"/financialJava.jar\"]"
     ]
 }
 
@@ -42,8 +42,8 @@ build {
   }
   
   provisioner "file" {
-    source = "./build/libs/financialJava.war"
-    destination = "/financialJava.war"
+    source = "./build/libs/financialJava.jar"
+    destination = "/financialJava.jar"
   }
   
   provisioner "ansible-local" {
