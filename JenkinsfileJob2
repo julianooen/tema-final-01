@@ -11,7 +11,7 @@ pipeline {
                         "files": [
                             {
                                 "pattern": "financial-app/financialJava.war",
-                                "target": "./"
+                                "target": "./build/libs/"
                             }
                         ]
                     }''',
