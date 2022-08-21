@@ -11,7 +11,7 @@
 		"commit": true,
 		"changes": [
 		  "EXPOSE 8383",
-		  "CMD [\"usr/apache-tomcat-9.0.62/bin/catalina.sh\",\"run\"]"
+		  "CMD [\"usr/apache-tomcat-8.5.78/bin/catalina.sh\",\"run\"]"
 		]
 	  }
 	],
@@ -29,7 +29,7 @@
 	  {
 		"type": "file",
 		"source": "build/libs/financialJava.war",
-		"destination": "/usr/apache-tomcat-9.0.62/webapps/financialJava.war"
+		"destination": "/usr/apache-tomcat-8.5.78/webapps/financialJava.war"
 	  }
 	],
 	"post-processors": [
