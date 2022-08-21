@@ -12,7 +12,7 @@ source "docker" "ubuntu" {
   commit = true
   changes = [
       "EXPOSE 8383",
-      "ENTRYPOINT [\"java\", \"-jar\", \"/financial.jar\"]"
+      "ENTRYPOINT [\"java\", \"-jar\", \"/financialJava.war\"]"
     ]
 }
 
@@ -42,8 +42,8 @@ build {
   }
   
   provisioner "file" {
-    source = "./build/libs/financial.jar"
-    destination = "/financial.jar"
+    source = "./build/libs/financialJava.war"
+    destination = "/financialJava.war"
   }
   
   provisioner "ansible-local" {
@@ -60,8 +60,6 @@ build {
         login_username = var.login_username
         login_password = var.login_password
 
-        # login_username = "julianooen"
-        # login_password = "dckr_pat_RFy0qjt-fAJQatb3AFGWlEhjl6c"
     }
   }
 }
