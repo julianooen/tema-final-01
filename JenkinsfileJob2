@@ -10,7 +10,7 @@ pipeline {
                     spec: '''{
                         "files": [
                             {
-                                "pattern": "financial-app/financialJava.jar",
+                                "pattern": "financial-app/financialJava.war",
                                 "target": "./build/libs/"
                             }
                         ]
