@@ -36,8 +36,7 @@
 	  [
 		{
 		  "type": "docker-tag",
-		  "repository": "{{user `docker_repository`}}",
-		  "tags": "1.0"
+		  "repository": "julianooen/financial-app"		  
 		},
 		{
 		  "type": "docker-push",
