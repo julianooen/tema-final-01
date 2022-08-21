@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Git clone') {
             steps {
-                git branch: 'master', url: 'https://github.com/julianooen/financial-java-app.git'
+                git branch: 'master', url: 'https://github.com/julianooen/finacialJava.git'
             }
         }
         stage('Tests') {
@@ -24,7 +24,7 @@ pipeline {
                     spec: '''{
                         "files": [
                             {
-                                "pattern": "build/libs/*.jar",
+                                "pattern": "build/libs/*.war",
                                 "target": "financial-app"
                             }
                         ]
