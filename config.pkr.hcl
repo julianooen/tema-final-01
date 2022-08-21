@@ -12,7 +12,7 @@ source "docker" "ubuntu" {
   commit = true
   changes = [
       "EXPOSE 8383",
-      "ENTRYPOINT [\"java\", \"-jar\", \"/financialJava.jar\"]"
+      "ENTRYPOINT [\"java\", \"-jar\", \"/financialJava.war\"]"
     ]
 }
 
