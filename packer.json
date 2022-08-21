@@ -1,0 +1,50 @@
+{
+	"variables": {
+	  "docker_username": "",
+	  "docker_password": "",
+	  "docker_repository": ""
+	},
+	"builders": [
+	  {
+		"type": "docker",
+		"image": "ubuntu:20.04",
+		"commit": true,
+		"changes": [
+		  "EXPOSE 8080",
+		  "CMD [\"usr/apache-tomcat-9.0.62/bin/catalina.sh\",\"run\"]"
+		]
+	  }
+	],
+	"provisioners": [
+	  {
+		"type": "shell",
+		"inline": [
+		  "apt update && apt install ansible -y"
+		]
+	  },
+	  {
+		"type": "ansible-local",
+		"playbook_file": "playbook.yml"
+	  },
+	  {
+		"type": "file",
+		"source": "build/libs/financialJava.war",
+		"destination": "/usr/apache-tomcat-9.0.62/webapps/financialJava.war"
+	  }
+	],
+	"post-processors": [
+	  [
+		{
+		  "type": "docker-tag",
+		  "repository": "{{user `docker_repository`}}",
+		  "tags": "1.0"
+		},
+		{
+		  "type": "docker-push",
+		  "login": true,
+		  "login_username": "{{user `login_username`}}",
+		  "login_password": "{{user `login_password`}}"
+		}
+	  ]
+	]
+  }
