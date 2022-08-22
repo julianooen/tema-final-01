@@ -27,7 +27,7 @@
 	  },
 	  {
 		"type": "file",
-		"source": "/var/lib/jenkins/workspace/job2-provision/build/libs/financialJava.war",
+		"source": "/var/lib/jenkins/workspace/job2/build/libs/financialJava.war",
 		"destination": "/usr/apache-tomcat-9.0.62/webapps/financialJava.war"
 	  }
 	],
