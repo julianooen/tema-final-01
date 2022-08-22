@@ -9,7 +9,7 @@
 		"image": "ubuntu:20.04",
 		"commit": true,
 		"changes": [
-		  "EXPOSE 8383",
+		  "EXPOSE 8080",
 		  "CMD [\"usr/apache-tomcat-9.0.62/bin/catalina.sh\",\"run\"]"
 		]
 	  }
