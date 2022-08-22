@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Run') {
             steps {
-                sh 'docker run --name app -d -p 8383:8383 julianooen/financial-app'
+                sh 'docker run --name app -d -p 8383:8080 julianooen/financial-app'
             }
         }
     }
