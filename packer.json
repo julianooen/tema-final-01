@@ -34,11 +34,11 @@
 	"post-processors": [
 	  [
 		{
-		  "type": "docker-rep",
+		  "type": "docker-tag",
 		  "repository": "julianooen/financial-app"		  
 		},
 		{
-		  "type": "docker-credentials",
+		  "type": "docker-push",
 		  "login": true,
 		  "login_username": "{{user `login_username`}}",
 		  "login_password": "{{user `login_password`}}"
