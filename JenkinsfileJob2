@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -18,19 +17,16 @@ pipeline {
                 )
             }
         }
-
-        stage('Download Packer') {
+        stage('download packer') {
             steps {
                 git branch: 'master', url: 'https://github.com/julianooen/tema-final-01.git'
             }
         }
-
-        stage('Packer') {
+        stage('run packer') {
             environment {
                     DOCKERHUB = credentials('dockerhub')
             }
             steps {
-                
                 sh 'packer build -var "login_username=$DOCKERHUB_USR" -var "login_password=$DOCKERHUB_PSW" packer.json'
             }
         }

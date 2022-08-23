@@ -2,12 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Dockerhub') {
+        stage('dockerhub') {
             steps {
                 sh 'docker pull julianooen/financial-app'
             }
         }
-        stage('Run') {
+        stage('run docker') {
             steps {
                 sh 'docker run --name app -d -p 8383:8080 julianooen/financial-app'
             }

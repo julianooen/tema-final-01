@@ -22,7 +22,7 @@
 		]
 	  },
 	  {
-		"type": "ansible-local",
+		"type": "ansible-file",
 		"playbook_file": "playbook.yml"
 	  },
 	  {
@@ -34,11 +34,11 @@
 	"post-processors": [
 	  [
 		{
-		  "type": "docker-tag",
+		  "type": "docker-rep",
 		  "repository": "julianooen/financial-app"		  
 		},
 		{
-		  "type": "docker-push",
+		  "type": "docker-credentials",
 		  "login": true,
 		  "login_username": "{{user `login_username`}}",
 		  "login_password": "{{user `login_password`}}"
